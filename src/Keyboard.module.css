@@ -1,0 +1,19 @@
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the gap between letters if needed */
+}
+p {
+  cursor: pointer;
+  border: black solid;
+}
