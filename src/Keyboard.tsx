@@ -30,24 +30,47 @@ const keys = [
   "z",
 ];
 
-const Keyboard = () => {
+type keyboardprops = {
+  addGuessedLetter: (letter: string) => void;
+};
+
+const Keyboard = ({ addGuessedLetter }:keyboardprops) => {
   return (
     <div className={styles["keyboard-container"]}>
       <div className={styles["keyboard-row"]}>
         {keys.slice(0, 9).map((letter) => (
-          <p key={letter}>{letter}</p>
+          <p
+            key={letter}
+            onClick={(e) => {
+              addGuessedLetter(e.target.innerText);
+            }}
+          >
+            {letter}
+          </p>
         ))}
       </div>
       <div className={styles["keyboard-row"]}>
         {keys.slice(9, 18).map((letter) => (
-          <p  key={letter}>
+          <p
+            key={letter}
+            onClick={(e) => {
+              addGuessedLetter(e.target.innerText);
+            }}
+          >
             {letter}
           </p>
         ))}
       </div>
       <div className={styles["keyboard-row"]}>
         {keys.slice(18).map((letter) => (
-          <p key={letter}>{letter}</p>
+          <p
+            key={letter}
+            onClick={(e) => {
+              addGuessedLetter(e.target.innerText);
+            }}
+          >
+            {letter}
+          </p>
         ))}
       </div>
     </div>
