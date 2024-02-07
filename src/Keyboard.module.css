@@ -13,7 +13,16 @@
   justify-content: center;
   gap: 10px; /* Adjust the gap between letters if needed */
 }
-p {
-  cursor: pointer;
-  border: black solid;
+
+.btn.active {
+  background-color: hsl(143, 76%, 46%);
+  border-color: hsl(143, 76%, 46%);
+  color: white;
+}
+
+.btn.inactive {
+  opacity: 0.3;
+  background-color: hsl(352, 87%, 48%);
+  border-color: hsl(352, 87%, 48%);
+  color: white;
 }

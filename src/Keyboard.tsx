@@ -30,48 +30,73 @@ const keys = [
   "z",
 ];
 
-type keyboardprops = {
+type KeyboardProps = {
+
+  activeLetters: string[];
+  inactiveLetters: string[];
   addGuessedLetter: (letter: string) => void;
 };
 
-const Keyboard = ({ addGuessedLetter }:keyboardprops) => {
+const Keyboard = ({ activeLetters, inactiveLetters, addGuessedLetter }: KeyboardProps) => {
+  
   return (
     <div className={styles["keyboard-container"]}>
       <div className={styles["keyboard-row"]}>
-        {keys.slice(0, 9).map((letter) => (
-          <p
-            key={letter}
-            onClick={(e) => {
-              addGuessedLetter(e.target.innerText);
-            }}
-          >
-            {letter}
-          </p>
-        ))}
+        {keys.slice(0, 9).map((letter) => {
+          const isActive = activeLetters.includes(letter);
+          const isInactive = inactiveLetters.includes(letter);
+          return (
+            <button
+              className={`${styles.btn} ${isActive ? styles.active : ""} ${
+                isInactive ? styles.inactive : ""
+              }`}
+              key={letter}
+              onClick={(e) => {
+                addGuessedLetter(e.target.innerText);
+              }}
+            >
+              {letter}
+            </button>
+          ); })}
       </div>
       <div className={styles["keyboard-row"]}>
-        {keys.slice(9, 18).map((letter) => (
-          <p
-            key={letter}
-            onClick={(e) => {
-              addGuessedLetter(e.target.innerText);
-            }}
-          >
-            {letter}
-          </p>
-        ))}
+        {keys.slice(9, 18).map((letter) => {
+          const isActive = activeLetters.includes(letter);
+          const isInactive = inactiveLetters.includes(letter);          
+          return (
+            <button
+              className={`${styles.btn} ${isActive ? styles.active : ""} ${
+                isInactive ? styles.inactive : ""
+              }`}
+              key={letter}
+              onClick={(e) => {
+                addGuessedLetter(e.target.innerText);
+              }}
+            >
+              {letter}
+            </button>
+          );
+          
+        })}
       </div>
       <div className={styles["keyboard-row"]}>
-        {keys.slice(18).map((letter) => (
-          <p
+        {keys.slice(18).map((letter) => {
+          const isActive = activeLetters.includes(letter);
+          const isInactive = inactiveLetters.includes(letter);          
+          return (
+            <button
+            className={`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""
+              }`}
             key={letter}
             onClick={(e) => {
               addGuessedLetter(e.target.innerText);
             }}
           >
             {letter}
-          </p>
-        ))}
+          </button>
+          )
+          
+        })}
       </div>
     </div>
   );
