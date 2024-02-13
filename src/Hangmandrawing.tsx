@@ -86,7 +86,9 @@ type HangmanDrawingProps = {
 };
 function HangmanDrwaing({ numberOfGusses }: HangmanDrawingProps) {
   return (
-    <div style={{ position: "relative" }}>
+    <div
+      style={{ position: "relative", left: "650px" }}
+    >
       {BODY_PARTS.slice(0, numberOfGusses)}
       <div
         style={{
